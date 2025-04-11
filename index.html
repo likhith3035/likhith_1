@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>likhith music player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Sortable.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+
+  <!-- Upload Overlay -->
+  <div class="upload-wrapper" id="uploadWrapper">
+    <div class="upload-box">
+      <h1><i><strong><b><u>LIKHITH</u></b></strong></i></h1>
+      <h2>Select Audio Files🙌</h2>
+      <input type="file" id="fileUploader" accept="audio/*" multiple>
+    </div>
+  </div>
+
+  <!-- Music Player Card -->
+  <div class="card hidden" id="musicCard">
+    <!-- Card Header (inside card) -->
+    <div class="card-header">
+      <h1 class="card-title-header">Likhith Online Music Player</h1>
+    </div>
+
+    <div class="pill">Music</div>
+
+    <div class="album-art">
+      <div class="glow purple"></div>
+      <div class="glow green"></div>
+      <div class="note">♪</div>
+    </div>
+
+    <div class="title" id="cardTitle">Song Title</div>
+    <div class="subtitle" id="cardSubtitle">Artist Name</div>
+
+    <div class="controls main-controls">
+      <button id="prevBtn" class="ctrl-btn" data-tooltip="Previous">
+        <svg viewBox="0 0 20 12"><path d="M17 1 7 6 17 11V1Z" fill="currentColor"/></svg>
+      </button>
+      <button id="playPauseBtn" class="ctrl-btn play-btn" data-tooltip="Play">
+        <svg id="playIcon" viewBox="0 0 18 22"><path d="M0 0v22l18-11z" fill="currentColor"/></svg>
+      </button>
+      <button id="nextBtn" class="ctrl-btn" data-tooltip="Next">
+        <svg viewBox="0 0 20 12"><path d="M3 1l10 5-10 5V1Z" fill="currentColor"/></svg>
+      </button>
+    </div>
+
+    <!-- Live‐filled Timeline Slider -->
+    <div class="timeline-wrapper">
+      <input type="range" id="timeline" min="0" max="100" value="0">
+    </div>
+
+    <div class="controls bottom-controls">
+      <button id="shuffleBtn" class="ctrl-btn" data-tooltip="Shuffle Off">
+        <svg viewBox="0 0 24 24"><path d="M4 4h4l6 8-6 8H4" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <button id="listBtn" class="ctrl-btn" data-tooltip="Toggle Playlist">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <button id="favBtn" class="ctrl-btn" data-tooltip="Add to Favorites">
+        <svg id="favIcon" viewBox="0 0 24 24"><path d="M12 21l-1-1C5 15 2 12 2 8a5 5 0 0 1 10 0 5 5 0 0 1 10 0c0 4-3 7-9 12l-1 1z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <button id="shareBtn" class="ctrl-btn" data-tooltip="Share">
+        <svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <div class="playlist hidden" id="playlistContainer">
+      <ul id="playlistList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
